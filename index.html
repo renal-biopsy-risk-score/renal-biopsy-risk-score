@@ -2,13 +2,36 @@
 <html>
 <head>
   <title>Renal biopsy risk score</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
 <body>
-  <span>Age: </span><input type="number" id="age"></input></br>
-  <span>Anticoagulation: </span><select name="Anticoagulation" id="anticoagulation"><option value="1">Yes</option><option value="0">No</option></select></br>
-  <span>Hemoglobin: </span><input type="number" id="hemoglobin"></input></br>
-  <span>INR: </span><input type="number" id="inr"></input></br>
-  <button onclick="computeAndDisplayScore()">Compute Score</button><span>Score result: </span><span id="score"></span>
+<div class="container">
+<div class="py-5 text-center">
+  <h1>Renal biopsy risk score</h1>
+</div>
+<form>
+  <div class="form-floating mb-3">
+    <input type="number" id="age" class="form-control" placeholder="0"></input>
+    <label for="age">Age<label>
+  </div>
+  
+  <div class="form-floating mb-3">
+    <select class="form-select" id="anticoagulation"><option value="1">Yes</option><option value="0">No</option></select>
+    <label for="anticoagulation">Anticoagulation<label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="number" id="hemoglobin" class="form-control" placeholder="0"></input>
+    <label for="hemoglobin">Hemoglobin<label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="number" id="inr" class="form-control" placeholder="0"></input>
+    <label for="inr">INR<label>
+  </div>
+  <h4 id="score">Score result: </h4>
+  <button class="btn btn-primary" type="button" onclick="computeAndDisplayScore()">Compute Score</button>
+</form>
+</div>
 </body>
 </html>
 <script>
@@ -23,6 +46,6 @@ function computeAndDisplayScore() {
   var score = exp_result / (1 + exp_result);
 
   var score_element = document.getElementById("score");
-  score_element.textContent = score;
+  score_element.textContent = "Score result: " + score;
 }
 </script>
