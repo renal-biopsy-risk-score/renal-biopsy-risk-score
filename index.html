@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <title>Renal biopsy risk score</title>
+</head>
+<body>
+  <span>Age: </span><input type="number" id="age"></input></br>
+  <span>Anticoagulation: </span><select name="Anticoagulation" id="anticoagulation"><option value="1">Yes</option><option value="0">No</option></select></br>
+  <span>Hemoglobin: </span><input type="number" id="hemoglobin"></input></br>
+  <span>INR: </span><input type="number" id="inr"></input></br>
+  <button onclick="computeAndDisplayScore()">Compute Score</button><span id="score"></span>
+</body>
+</html>
+<script>
+function computeAndDisplayScore() {
+  var age = parseInt(document.getElementById("age").value);
+  var anticoagulation = document.getElementById("anticoagulation").value;
+  var hemoglobin = document.getElementById("hemoglobin").value;
+  var inr = document.getElementById("inr").value;
+
+  var score_element = document.getElementById("score");
+  score_element.textContent = age;
+}
+</script>
